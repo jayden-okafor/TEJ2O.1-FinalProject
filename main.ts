@@ -28,7 +28,7 @@ while (true) {
 
     // if the distance is <= 10 open the trash can lid and wait for 3.5 seconds else close the trash can lid
     if (distance > 0 && distance <= 8) {
-        robotbit.Servo(servoNumber8, -10)
+        robotbit.Servo(servoNumber8, -5)
         basic.pause(3500)
     } else {
         robotbit.Servo(servoNumber8, 80)

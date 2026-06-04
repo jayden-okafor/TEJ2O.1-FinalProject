@@ -10,7 +10,7 @@ basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
 // variables
-const servoNumber8 = robotbit.Servos.S8
+const servoNumber8 = robotbit.Servos.S1
 let distance: number = null
 
 // make the servo a heading of 80 degrees during startup

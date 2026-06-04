@@ -10,36 +10,27 @@ basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
 // variables
-const servoNumber8 = robotbit.Servos.S1
+const servoNumber8 = robotbit.Servos.S8
+let distance: number = null
 
-/*
+// make the servo a heading of 80 degrees during startup
+robotbit.Servo(servoNumber8, 80)
+
+// runs forever
 while (true) {
 
     // get the distance using the sonar
     const distance = sonar.ping(
-        DigitalPin.P1, // trigger
-        DigitalPin.P2, // echo
+        DigitalPin.P14, // trigger
+        DigitalPin.P15, // echo
         PingUnit.Centimeters,
     )
 
+// if the distance is <= 10 open the trash can lid and wait for 3.5 seconds else close the trash can lid
     if (distance > 0 && distance <= 10) {
-        robotbit.Servo(servoNumber8, 118)
+        robotbit.Servo(servoNumber8, -5)
         basic.pause(3500)
     } else {
-        robotbit.Servo(servoNumber8, 180)
+        robotbit.Servo(servoNumber8, 80)
     }
 }
-*/
-
-input.onButtonPressed(Button.A, function () {
-    robotbit.Servo(servoNumber8, 118)
-    basic.showIcon(IconNames.Happy)
-})
-
-input.onButtonPressed(Button.B, function () {
-    robotbit.Servo(servoNumber8, 180)
-    basic.showIcon(IconNames.Happy)
-})
-
-// dead center == 118 degreees
-// left == 180 degrees

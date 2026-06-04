@@ -26,8 +26,8 @@ while (true) {
         PingUnit.Centimeters,
     )
 
-// if the distance is <= 10 open the trash can lid and wait for 3.5 seconds else close the trash can lid
-    if (distance > 0 && distance <= 10) {
+    // if the distance is <= 10 open the trash can lid and wait for 3.5 seconds else close the trash can lid
+    if (distance > 0 && distance <= 7) {
         robotbit.Servo(servoNumber8, -5)
         basic.pause(3500)
     } else {

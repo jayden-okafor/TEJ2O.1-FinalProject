@@ -20,7 +20,7 @@ robotbit.Servo(servoNumber8, 80)
 while (true) {
 
     // get the distance using the sonar
-    const distance = sonar.ping(
+    distance = sonar.ping(
         DigitalPin.P14, // trigger
         DigitalPin.P15, // echo
         PingUnit.Centimeters,

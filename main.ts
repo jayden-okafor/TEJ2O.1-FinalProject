@@ -12,6 +12,7 @@ basic.showIcon(IconNames.Happy)
 // variables
 const servoNumber8 = robotbit.Servos.S1
 let distance: number = null
+let detectedSince: number = 0
 
 // make the servo a heading of 80 degrees during startup
 robotbit.Servo(servoNumber8, 80)
@@ -30,10 +31,23 @@ while (true) {
     console.log(distance)
 
     // if the distance is <= 10 open the trash can lid and wait for 3.5 seconds else close the trash can lid
-    if (distance > 0 && distance <= 8) {
-        robotbit.Servo(servoNumber8, -5)
-        basic.pause(3500)
+    if (distance > 0 && distance <= 12) {
+
+        // assigns the time the object was detected to the variable "detectedSince"
+        if (detectedSince == 0) {
+            detectedSince = input.runningTime()
+        }
+
+        // open the trash can lid ONLY if the hand has been there for at least 200ms. 
+        // this is to stop the servo from randomly opening when the distance sensor gets random spikes making it detect false data.
+        if (input.runningTime() - detectedSince >= 200) {
+            robotbit.Servo(servoNumber8, -5)
+            basic.pause(3500)
+        }
     } else {
+
+        // reset the timer and close the lid
+        detectedSince = 0
         robotbit.Servo(servoNumber8, 80)
     }
 }

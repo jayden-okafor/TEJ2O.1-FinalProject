@@ -26,6 +26,9 @@ while (true) {
         PingUnit.Centimeters,
     )
 
+    // logs the exact distance the distance sensor recieved when the servo was triggerred
+    console.log(distance)
+
     // if the distance is <= 10 open the trash can lid and wait for 3.5 seconds else close the trash can lid
     if (distance > 0 && distance <= 8) {
         robotbit.Servo(servoNumber8, -5)

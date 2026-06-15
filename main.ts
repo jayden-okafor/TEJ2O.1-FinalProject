@@ -27,7 +27,7 @@ while (true) {
         PingUnit.Centimeters,
     )
 
-    // if the distance is <= 10 open the trash can lid and wait for 3.5 seconds else close the trash can lid
+    // if the distance is <= 12 open the trash can lid and wait for 3.5 seconds. else close the trash can lid
     if (distance > 0 && distance <= 12) {
 
         // assigns the time the object was detected to the variable "detectedSince"

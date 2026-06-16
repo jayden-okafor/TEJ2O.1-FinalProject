@@ -42,8 +42,6 @@ while (true) {
             robotbit.Servo(servoNumber8, -5)
             angle = -5
             basic.pause(3500)
-
-
         }
     } else {
 

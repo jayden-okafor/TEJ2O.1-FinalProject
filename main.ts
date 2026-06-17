@@ -13,7 +13,7 @@ basic.showIcon(IconNames.Happy)
 const servoNumber8 = robotbit.Servos.S1
 let distance: number = null
 let detectedSince: number = 0
-let angle = null
+let angle:number = null
 
 // make the servo a heading of 80 degrees during startup
 robotbit.Servo(servoNumber8, 80)
